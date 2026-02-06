@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barriers to Geothermal Energy Adoption — A Literature Review</title>
+    <style>
+        :root {
+            --primary: #e63946;
+            --secondary: #457b9d;
+            --dark: #1d3557;
+            --light: #f1faee;
+            --accent: #a8dadc;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: #fff;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--dark);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav .logo {
+            color: var(--light);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        nav a {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        
+        nav a:hover {
+            color: var(--light);
+        }
+        
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--secondary) 100%);
+            color: var(--light);
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+        
+        .hero h1 span {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .hero .meta {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Section */
+        section {
+            padding: 4rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        section:last-child {
+            border-bottom: none;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        h2 .icon {
+            font-size: 1.5rem;
+        }
+        
+        h3 {
+            font-size: 1.3rem;
+            color: var(--secondary);
+            margin: 2rem 0 1rem;
+        }
+        
+        h4 {
+            font-size: 1.1rem;
+            color: var(--dark);
+            margin: 1.5rem 0 0.75rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        /* Executive Summary Cards */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .summary-card {
+            background: var(--light);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .summary-card h4 {
+            margin-top: 0;
+            color: var(--dark);
+        }
+        
+        .summary-card ul {
+            margin-left: 1.2rem;
+            font-size: 0.95rem;
+        }
+        
+        .summary-card li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Stats */
+        .stats-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .stat {
+            background: linear-gradient(135deg, var(--secondary), var(--dark));
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        
+        .stat-label {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+        
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background: var(--dark);
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:hover {
+            background: var(--light);
+        }
+        
+        /* Case Studies */
+        .case-study {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border: 1px solid #e9ecef;
+        }
+        
+        .case-study h4 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+        
+        .case-study .location {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Citations */
+        .citation {
+            background: #f8f9fa;
+            padding: 0.75rem 1rem;
+            border-left: 3px solid var(--secondary);
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .citation-list {
+            font-size: 0.85rem;
+            line-height: 1.8;
+        }
+        
+        .citation-list li {
+            margin-bottom: 0.75rem;
+        }
+        
+        /* Highlight boxes */
+        .highlight {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--light) 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+        
+        .highlight.warning {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeeba 100%);
+            border-left: 4px solid #ffc107;
+        }
+        
+        .highlight.info {
+            border-left: 4px solid var(--secondary);
+        }
+        
+        /* Charts */
+        .chart-container {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+        
+        .bar-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .bar-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .bar-label {
+            width: 120px;
+            font-size: 0.85rem;
+            text-align: right;
+        }
+        
+        .bar-track {
+            flex: 1;
+            background: #ddd;
+            height: 24px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 8px;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: var(--light);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        footer a {
+            color: var(--accent);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stat-value {
+                font-size: 2rem;
+            }
+            
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .bar-label {
+                width: 80px;
+                font-size: 0.75rem;
+            }
+        }
+        
+        /* Methodology Section Special */
+        .method-card {
+            background: white;
+            border: 2px solid var(--accent);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .method-card h4 {
+            color: var(--dark);
+            margin-top: 0;
+        }
+        
+        .method-tag {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Gaps Section */
+        .gap-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .gap-item {
+            background: #fff3cd;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .gap-item h5 {
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">🌋 Geothermal Barriers</div>
+        <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#economic">Economic</a></li>
+            <li><a href="#political">Political</a></li>
+            <li><a href="#legal">Legal</a></li>
+            <li><a href="#social">Social</a></li>
+            <li><a href="#methods">Methods</a></li>
+            <li><a href="#references">References</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <h1>Barriers to <span>Geothermal</span> Energy Adoption</h1>
+        <p class="subtitle">A comprehensive literature review examining social, political, legal, and economic impediments to geothermal development—with special attention to qualitative and ethnographic research methods.</p>
+        <p class="meta">Compiled February 2026 | 150+ verified citations</p>
+    </header>
+
+    <main class="container">
+        
+        <!-- Overview Section -->
+        <section id="overview">
+            <h2><span class="icon">📊</span> Executive Overview</h2>
+            
+            <p>Despite its potential as a reliable, baseload renewable energy source, geothermal energy remains significantly underutilized globally. This literature review synthesizes research across four major barrier categories, revealing interconnected impediments that span technical, institutional, and social domains.</p>
+            
+            <div class="stats-row">
+                <div class="stat">
+                    <div class="stat-value">8</div>
+                    <div class="stat-label">Average years for project development on U.S. public lands</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">$3-7K</div>
+                    <div class="stat-label">Capital cost per kW (vs $925-1,250 for solar)</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">$124M</div>
+                    <div class="stat-label">Oil & gas lobbying in 2022 alone</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">30-70%</div>
+                    <div class="stat-label">Project costs consumed by drilling</div>
+                </div>
+            </div>
+            
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <h4>💰 Economic Barriers</h4>
+                    <ul>
+                        <li>High upfront capital costs ($3,000-$7,000/kW)</li>
+                        <li>Exploration risk with 30-70% drilling cost share</li>
+                        <li>Limited investor appetite for pre-confirmation risk</li>
+                        <li>Competition with rapidly declining solar/wind costs</li>
+                    </ul>
+                </div>
+                <div class="summary-card">
+                    <h4>🏛️ Political Barriers</h4>
+                    <ul>
+                        <li>Regulatory fragmentation across jurisdictions</li>
+                        <li>Fossil fuel lobbying asymmetry</li>
+                        <li>Subsidy imbalances ($260B fossil vs minimal geothermal)</li>
+                        <li>Limited political awareness and will</li>
+                    </ul>
+                </div>
+                <div class="summary-card">
+                    <h4>⚖️ Legal Barriers</h4>
+                    <ul>
+                        <li>Property rights ambiguity (surface vs. subsurface)</li>
+                        <li>Multi-layered permitting processes</li>
+                        <li>NEPA reviews invoked up to 6x per project</li>
+                        <li>Induced seismicity liability uncertainty</li>
+                    </ul>
+                </div>
+                <div class="summary-card">
+                    <h4>🧑‍🤝‍🧑 Social Barriers</h4>
+                    <ul>
+                        <li>NIMBY opposition driven by seismic fears</li>
+                        <li>Conflicts with hot spring industries (Japan)</li>
+                        <li>Indigenous rights and displacement concerns</li>
+                        <li>Lack of public awareness and trust deficits</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Economic Section -->
+        <section id="economic">
+            <h2><span class="icon">💰</span> Economic Impediments</h2>
+            
+            <h3>Capital Costs and Front-Loaded Investment</h3>
+            <p>Geothermal projects require massive upfront capital expenditures before any revenue generation. Unlike solar and wind, which have seen dramatic cost declines, geothermal remains capital-intensive:</p>
+            
+            <div class="chart-container">
+                <h4>Capital Costs Comparison ($/kW)</h4>
+                <div class="bar-chart">
+                    <div class="bar-row">
+                        <span class="bar-label">Geothermal</span>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="width: 100%">$3,000-7,000</div>
+                        </div>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">Wind</span>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="width: 25%">$1,250-1,750</div>
+                        </div>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">Solar PV</span>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="width: 18%">$925-1,250</div>
+                        </div>
+                    </div>
+                </div>
+                <p style="font-size: 0.8rem; color: #666; margin-top: 1rem;">Source: Center for Sustainable Systems, University of Michigan (2024)</p>
+            </div>
+            
+            <h3>Exploration Risk</h3>
+            <p>Unlike other renewables, geothermal faces high geological uncertainty until confirmation drilling is completed:</p>
+            <ul>
+                <li><strong>Drilling costs:</strong> 30-57% of overnight capital costs for conventional systems; 50-70% for Enhanced Geothermal Systems (EGS)</li>
+                <li><strong>Pre-drilling uncertainty:</strong> Resource potential unknown until $2-10 million confirmation wells are drilled</li>
+                <li><strong>Timeline risk:</strong> Exploratory phases typically take 2+ years before investor confidence</li>
+            </ul>
+            
+            <div class="citation">
+                <strong>Key Finding:</strong> "Most private investors unwilling to accept exploration-phase risk; projects struggle to secure commercial financing before resource confirmation." — World Bank/ESMAP (2020)
+            </div>
+            
+            <h3>LCOE Comparisons</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Technology</th>
+                        <th>LCOE ($/MWh)</th>
+                        <th>Capacity Factor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Hydrothermal Geothermal</td>
+                        <td>$61-102</td>
+                        <td>90-95%</td>
+                    </tr>
+                    <tr>
+                        <td>EGS (challenging sites)</td>
+                        <td>Up to $350</td>
+                        <td>90%+</td>
+                    </tr>
+                    <tr>
+                        <td>Onshore Wind</td>
+                        <td>$26-50</td>
+                        <td>25-45%</td>
+                    </tr>
+                    <tr>
+                        <td>Utility Solar</td>
+                        <td>$30-44</td>
+                        <td>20-30%</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="font-size: 0.85rem; color: #666;">Note: Geothermal's high capacity factor (90-95%) provides baseload reliability that intermittent renewables cannot match.</p>
+        </section>
+
+        <!-- Political Section -->
+        <section id="political">
+            <h2><span class="icon">🏛️</span> Political Impediments</h2>
+            
+            <h3>Regulatory Fragmentation</h3>
+            <p>Geothermal projects must navigate overlapping federal, state, and local regulations, creating extended timelines and uncertainty:</p>
+            
+            <div class="highlight info">
+                <strong>NREL Finding:</strong> Each final geothermal well on U.S. public land invokes NEPA review up to 6 times, with each Environmental Assessment taking approximately 10 months, resulting in an <strong>average development timeline of 8 years</strong>.
+            </div>
+            
+            <p>The GeoVision Barriers Task Force Report projects that streamlining permitting could decrease development timelines by 25-50% and increase geothermal capacity by <strong>15-20 times by 2050</strong>.</p>
+            
+            <h3>Fossil Fuel Lobbying Asymmetry</h3>
+            <p>The oil and gas industry's substantial lobbying efforts create an uneven playing field:</p>
+            
+            <div class="chart-container">
+                <h4>Lobbying Expenditures (2022)</h4>
+                <div class="bar-chart">
+                    <div class="bar-row">
+                        <span class="bar-label">Oil & Gas</span>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="width: 100%">$124.4M</div>
+                        </div>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">Renewables</span>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="width: 12%">~$15M</div>
+                        </div>
+                    </div>
+                </div>
+                <p style="font-size: 0.8rem; color: #666; margin-top: 1rem;">Source: OpenSecrets (2023)</p>
+            </div>
+            
+            <h3>Subsidy Imbalances</h3>
+            <p>Historical and ongoing subsidies favor fossil fuels. In 2016, fossil fuels received approximately <strong>$260 billion in global subsidies</strong>. Geothermal only gained major federal support with the 2022 Inflation Reduction Act.</p>
+            
+            <h3>International Success Stories</h3>
+            <div class="case-study">
+                <h4>Kenya, Iceland, Philippines</h4>
+                <p>These countries demonstrate that success requires:</p>
+                <ul>
+                    <li>Consolidated governance structures</li>
+                    <li>Clear political commitment at the highest levels</li>
+                    <li>Comprehensive policy frameworks</li>
+                    <li>Long-term vision beyond electoral cycles</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Legal Section -->
+        <section id="legal">
+            <h2><span class="icon">⚖️</span> Legal Impediments</h2>
+            
+            <h3>Property Rights Uncertainty</h3>
+            <p>The fundamental legal question of "who owns geothermal heat" remains unresolved in many jurisdictions. Unlike oil and gas with established property rights frameworks, geothermal's classification varies by state:</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Jurisdiction</th>
+                        <th>Classification</th>
+                        <th>Implications</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Texas (2023)</td>
+                        <td>Surface rights holder owns subsurface geothermal</td>
+                        <td>Model legislation resolving decades of uncertainty</td>
+                    </tr>
+                    <tr>
+                        <td>Utah</td>
+                        <td>Associated with nontributary groundwater</td>
+                        <td>Tied to surface rights unless severed</td>
+                    </tr>
+                    <tr>
+                        <td>Federal Lands</td>
+                        <td>Distinct from minerals (Geothermal Steam Act 1970)</td>
+                        <td>Separate regulatory framework</td>
+                    </tr>
+                    <tr>
+                        <td>Some states</td>
+                        <td>Treated as minerals</td>
+                        <td>Requires severed mineral rights</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="citation">
+                <strong>Eckstein (2024):</strong> "Unclear property rights in geothermal heat significantly inhibit investment... a problem that persists nearly 50 years" since first documented. — <em>Illinois Law Review</em>
+            </div>
+            
+            <h3>Induced Seismicity Liability</h3>
+            <p>Legal frameworks for induced seismicity liability remain unclear, creating significant investment risk:</p>
+            <ul>
+                <li><strong>Basel, Switzerland (2006):</strong> EGS project terminated after ML 3.4 earthquake</li>
+                <li><strong>Pohang, Korea (2017):</strong> Mw 5.4 earthquake caused $52M in damage</li>
+                <li><strong>Strasbourg, France:</strong> Project terminated due to ML 3.6 induced event</li>
+            </ul>
+            
+            <h3>Recent Reform Efforts</h3>
+            <p>BLM proposed categorical exclusions in January 2025 to streamline permitting. Research shows LCOE is <strong>4-11% higher</strong> for projects with longer environmental review timelines.</p>
+        </section>
+
+        <!-- Social Section -->
+        <section id="social">
+            <h2><span class="icon">🧑‍🤝‍🧑</span> Social Impediments</h2>
+            
+            <h3>Key Barriers</h3>
+            <p>Social barriers often equal or exceed technical challenges:</p>
+            <ul>
+                <li><strong>Lack of awareness:</strong> Most fundamental barrier affecting all other acceptance factors</li>
+                <li><strong>Seismic risk fears:</strong> Particularly for Enhanced Geothermal Systems</li>
+                <li><strong>NIMBY opposition:</strong> Support in principle, oppose in locality</li>
+                <li><strong>Trust deficits:</strong> Especially between developers and local communities</li>
+            </ul>
+            
+            <h3>Case Studies</h3>
+            
+            <div class="case-study">
+                <h4>🇯🇵 Japan: Hot Springs Conflict</h4>
+                <div class="location">Kusatsu, Unzen, and other onsen towns</div>
+                <p>Hot spring (onsen) resort owners have blocked geothermal development for decades, fearing depletion of thermal water resources—despite different drilling depths. Town of Kusatsu passed ordinance requiring proof that projects won't negatively affect hot springs.</p>
+                <p><strong>Success story:</strong> Obama Hot Springs in Unzen developed community consensus through extensive outreach and local councils with spa owners as voting members.</p>
+            </div>
+            
+            <div class="case-study">
+                <h4>🇰🇷 Korea: Pohang Earthquake</h4>
+                <div class="location">Pohang, South Korea (2017)</div>
+                <p>Mw 5.4 earthquake near Enhanced Geothermal System project caused $52 million in damage and injured 90 people. Proximity to epicenter negatively correlated with public preference for geothermal energy. Local residents began anchoring geothermal risk to nuclear power plant risks.</p>
+            </div>
+            
+            <div class="case-study">
+                <h4>🇰🇪 Kenya: Maasai Displacement</h4>
+                <div class="location">Olkaria Geothermal Area</div>
+                <p>Over 1,000 Maasai people involuntarily relocated in 2014. Research documented exacerbation of inequality along lines of gender, age, and ethnicity. Revealed processes of resource capture and exclusionary decision-making.</p>
+            </div>
+            
+            <div class="case-study">
+                <h4>🇳🇿 New Zealand: Māori Co-Management</h4>
+                <div class="location">Various sites</div>
+                <p><strong>Success model:</strong> Indigenous partnership models demonstrate success when rights are respected and benefits shared equitably. Provides template for community engagement.</p>
+            </div>
+        </section>
+
+        <!-- Ethnographic Methods Section -->
+        <section id="methods">
+            <h2><span class="icon">🔬</span> Qualitative & Ethnographic Methods</h2>
+            
+            <p>Qualitative and ethnographic methods have emerged as critical approaches for understanding social acceptance barriers. This section highlights key studies, researchers, and methodological gaps.</p>
+            
+            <h3>Notable Ethnographic Studies</h3>
+            
+            <div class="method-card">
+                <h4>Faye N. Ricker (2022) — Kenya</h4>
+                <span class="method-tag">Ethnographic Case Study</span>
+                <span class="method-tag">Feminist Political Ecology</span>
+                <span class="method-tag">7 Months Fieldwork</span>
+                <p><strong>Location:</strong> Olkaria Geothermal Area, resettlement village</p>
+                <p><strong>Sample:</strong> 46 in-depth household interviews + 5 key informants + focus groups</p>
+                <p><strong>Methods:</strong> Participant observation, direct observation, men's and women's focus groups, directed content analysis</p>
+                <p><strong>Contribution:</strong> Most comprehensive ethnographic study found—combines longitudinal fieldwork with explicit attention to gender, power, and indigenous rights.</p>
+            </div>
+            
+            <div class="method-card">
+                <h4>Sofía Vargas-Payera (2018) — Chile</h4>
+                <span class="method-tag">Qualitative Case Study</span>
+                <span class="method-tag">Indigenous Communities</span>
+                <p><strong>Location:</strong> Villarrica Volcano area, Araucanía region</p>
+                <p><strong>Community:</strong> Indigenous Mapuche communities</p>
+                <p><strong>Key Finding:</strong> Spiritual relationship to volcanoes as major barrier; cultural customs requiring specific engagement approaches</p>
+            </div>
+            
+            <div class="method-card">
+                <h4>Visual Ethnography Project — Multi-Country</h4>
+                <span class="method-tag">Visual Ethnography</span>
+                <span class="method-tag">Gender Studies</span>
+                <p><strong>Countries:</strong> Iceland, Kenya, Ethiopia, Japan, New Zealand</p>
+                <p><strong>Focus:</strong> Women in geothermal industry—professional lives and experiences across different cultural contexts</p>
+            </div>
+            
+            <h3>Key Researchers by Region</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Region</th>
+                        <th>Researchers</th>
+                        <th>Focus Areas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Japan</td>
+                        <td>Hiromi Kubota, Shunichi Hienuki</td>
+                        <td>Hot spring stakeholder opposition</td>
+                    </tr>
+                    <tr>
+                        <td>Switzerland</td>
+                        <td>Olivier Ejderyan, Franziska Ruef, Michael Stauffacher</td>
+                        <td>Public participation, induced seismicity</td>
+                    </tr>
+                    <tr>
+                        <td>Italy</td>
+                        <td>Anna Pellizzone, Agnes Allansdottir</td>
+                        <td>Deliberative engagement methods</td>
+                    </tr>
+                    <tr>
+                        <td>Philippines</td>
+                        <td>Marnel Arnold Ratio, Jillian Aira Gabo-Ratio</td>
+                        <td>Makiling-Banahaw case study</td>
+                    </tr>
+                    <tr>
+                        <td>Australia</td>
+                        <td>Anne-Maree Dowd</td>
+                        <td>Participatory action research</td>
+                    </tr>
+                    <tr>
+                        <td>Indonesia</td>
+                        <td>Dian Kurnia Anggreta</td>
+                        <td>Stakeholder mapping</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Methods Used in the Literature</h3>
+            <ul>
+                <li><strong>Semi-structured interviews</strong> — Most common (15-50 participants typical)</li>
+                <li><strong>Focus group discussions</strong> — 4-8 groups, often gender-segregated</li>
+                <li><strong>Participant observation</strong> — Rare but powerful (1-7 months fieldwork)</li>
+                <li><strong>Case study designs</strong> — Single and comparative</li>
+                <li><strong>Deliberative methods</strong> — Citizen juries, participatory action research</li>
+                <li><strong>Document/media analysis</strong> — EIA reports, newspapers, policy documents</li>
+            </ul>
+            
+            <h3>Research Gaps Identified</h3>
+            <div class="gap-list">
+                <div class="gap-item">
+                    <h5>🌍 Geographic Gaps</h5>
+                    <p>Limited research in Africa (outside East Africa), Middle East, Central Asia, much of Latin America</p>
+                </div>
+                <div class="gap-item">
+                    <h5>📋 Methodological Gaps</h5>
+                    <p>Few longitudinal ethnographies; limited indigenous-led research; underuse of visual/sensory methods</p>
+                </div>
+                <div class="gap-item">
+                    <h5>📚 Topical Gaps</h5>
+                    <p>Weak on intergenerational issues, class/economic diversity, disability, emotional dimensions, success stories</p>
+                </div>
+                <div class="gap-item">
+                    <h5>🎓 Theoretical Gaps</h5>
+                    <p>Limited critical theory integration; weak power/political economy analysis</p>
+                </div>
+            </div>
+            
+            <div class="highlight warning">
+                <h4>Opportunity for Future Research</h4>
+                <p>The literature reveals significant opportunities for deeper ethnographic engagement—particularly longitudinal studies, indigenous-led research, and work that integrates power analysis and political economy perspectives. Most existing research relies on interviews and surveys; immersive participant observation remains rare.</p>
+            </div>
+        </section>
+
+        <!-- References Section -->
+        <section id="references">
+            <h2><span class="icon">📚</span> Selected References</h2>
+            
+            <h3>Economic Studies</h3>
+            <ul class="citation-list">
+                <li>Akindipe, D. et al. (2025). "2025 Geothermal Drilling Cost Curves Update." <em>Proceedings, 50th Workshop on Geothermal Reservoir Engineering</em>, Stanford University.</li>
+                <li>Center for Sustainable Systems, University of Michigan. (2024). "Geothermal Energy Factsheet." <em>CSS Factsheets</em>.</li>
+                <li>Chamorro, C.R., et al. (2012). "World geothermal power production status: Energy, environmental and economic study of high enthalpy technologies." <em>Energy</em>.</li>
+                <li>World Bank/ESMAP. (2020). "The Global Geothermal Development Plan: Mitigating Upstream Cost and Risk."</li>
+            </ul>
+            
+            <h3>Political & Policy Studies</h3>
+            <ul class="citation-list">
+                <li>ClearPath. (2024). "Regulatory Reform Could Unlock Gigawatts of Zero-Emission Geothermal."</li>
+                <li>Earth Day. (2024). "The Gaslight Effect: Lobbying in the Fossil Fuel Industry."</li>
+                <li>Niskanen Center. (2025). "Geothermal Policy Reform: Bridging the Gaps."</li>
+                <li>OpenSecrets. (2023). "Oil and Gas Industry Spent $124.4 Million on Federal Lobbying."</li>
+                <li>Young, K. R., et al. (2019). <em>GeoVision Analysis Supporting Task Force Report: Barriers</em>. NREL/TP--6A20-71641.</li>
+            </ul>
+            
+            <h3>Legal Studies</h3>
+            <ul class="citation-list">
+                <li>Eckstein, G. (2024). "Who Owns Heat? Property Rights in Geothermal Energy." <em>Illinois Law Review</em>. SSRN.</li>
+                <li>NREL. (2023). "Non-Technical Barriers to Geothermal Development."</li>
+                <li>R Street Institute. (2024). Analysis of CEQA/NEPA review timeline impacts on LCOE.</li>
+                <li>Zhou et al. (2024). "Managing Induced Seismicity Risks From Enhanced Geothermal Systems: A Good Practice Guideline." <em>Reviews of Geophysics</em>, AGU.</li>
+            </ul>
+            
+            <h3>Social Acceptance Studies</h3>
+            <ul class="citation-list">
+                <li>Baek, H., Chung, J.-B., & Yun, G. W. (2021). "Differences in public perceptions of geothermal energy based on EGS technology in Korea after the Pohang earthquake." <em>Technological Forecasting and Social Change</em>, 172.</li>
+                <li>Barasa, M., et al. (2024). "Social acceptance and associated risks of geothermal energy development in East Africa." <em>Clean Energy</em>, 8(5). Oxford Academic.</li>
+                <li>Deichmann, N., & Giardini, D. (2009). "Earthquakes Induced by the Stimulation of an Enhanced Geothermal System below Basel (Switzerland)." <em>Seismological Research Letters</em>.</li>
+                <li>Reno et al. (2023). Systematic review of social acceptance studies. <em>Energy, Sustainability and Society</em>.</li>
+            </ul>
+            
+            <h3>Ethnographic & Qualitative Studies</h3>
+            <ul class="citation-list">
+                <li>Ricker, Faye N. (2022). "Geothermal Development in Kenya: Gender Based Socio-Cultural and Socio-Economic Implications." Ph.D. Dissertation, University of South Florida.</li>
+                <li>Vargas-Payera, Sofía. (2018). "Understanding social acceptance of geothermal energy: Case study for Araucanía region, Chile." <em>Geothermics</em>, Vol. 72, pp. 138-144.</li>
+            </ul>
+            
+            <p style="margin-top: 2rem; font-size: 0.9rem; color: #666;"><strong>Note:</strong> This is a selected bibliography. The full research compilation includes 150+ verified references across all categories. See the individual research documents for complete citations.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Compiled by John P. Lake 🐟 | February 2026</p>
+        <p>Research conducted using parallel sub-agent literature review</p>
+        <p><a href="https://github.com/johnplake/geothermal-barriers">View on GitHub</a></p>
+    </footer>
+</body>
+</html>
